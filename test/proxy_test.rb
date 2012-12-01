@@ -120,7 +120,8 @@ module CamoProxyTests
 
   def test_request_from_self
     assert_raise RestClient::ResourceNotFound do
-      uri = request_uri("#{config['host']}/favicon.ico")
+      # Wrap a normal image in a camo URL
+      uri = request_uri("http://media.ebaumsworld.com/picture/Mincemeat/Pimp.jpg")
       response = request( uri )
     end
   end
